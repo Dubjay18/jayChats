@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply px-6 py-2 rounded-lg;
+}
+
+.social-icons {
+  @apply py-2 px-2 bg-pur rounded-full;
+}
+.social-img {
+  @apply w-14 object-bottom object-cover;
+}
+.input-box {
+  @apply w-full py-2.5 px-3;
+}
+.h-btn {
+  @apply transition duration-500 hover:bg-purple-700;
+}
+
+.active-nav {
+  @apply lg:border-b-4 text-pur lg:text-black font-medium lg:font-normal rounded border-pur;
+}
+
+.active-type {
+  @apply border-b-4 border-pur text-pur;
+}
+
+.agent-sidebar {
+  @apply text-white bg-pur rounded-xl;
+}
+
+.user-sidebar {
+  @apply text-white bg-pur rounded-xl;
+}
+
+.add-product-input {
+  @apply bg-pur-50 outline-0 rounded-xl py-2 px-3;
+}
+
+.table-sm {
+  @apply hidden md:block;
+}
+.active-msg {
+  @apply rounded-xl bg-pur-300 border-b-0;
+}
+
+.trans {
+  transition: all 0.4s;
+}
+
+.adjust-bg {
+  background-size: 8%;
+}
+
+.filte {
+  filter: drop-shadow(0px 6px 33px rgba(0, 0, 0, 0.25));
+}
+
+.remove-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.remove-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.grad-p {
+  background: linear-gradient(269.89deg, #79017b 0.06%, #280129 97.7%);
+}
+
+.color {
+  background-color: rgb(46, 45, 46);
+}
+@media screen and (max-width: 767px) {
+  .slide {
+    border-top: 1px solid #c0bcbc;
+    text-align: center;
+    margin-top: 20px;
+    align-content: center;
+  }
+}
+.css-1s2u09g-control {
+  border-width: 0px !important;
+  background-color: rgb(248 248 248 / var(--tw-bg-opacity)) !important;
+}
+.emoji-picker-react {
+  position: absolute;
+  background-color: rgb(9, 156, 156) !important;
+  border-color: rgb(8, 126, 126) !important;
+  box-shadow: 0 5px 10px rgb(8, 126, 126) !important;
+}
+.emoji-picker-react .emoji-search {
+  background-color: transparent !important;
+  color: white;
+}
+.emoji-picker-react .emoji-group::before {
+  background-color: rgb(9, 156, 156) !important;
+  color: white !important;
+}
+.emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar {
+  background-color: rgb(9, 156, 156) !important;
+  width: 10px;
+}
+.emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(5, 105, 105) !important;
+  border-radius: 5px;
+}
+.messagescrollbar::-webkit-scrollbar {
+  background-color: rgb(9, 156, 156) !important;
+  width: 20px;
+}
+.messagescrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(5, 105, 105) !important;
+  border-radius: 5px;
+}
