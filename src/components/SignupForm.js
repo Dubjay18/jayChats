@@ -36,9 +36,10 @@ const SignupForm = ({ handleSign }) => {
     }),
     onSubmit: (values) => {
       axios
-        .post("https://jaychats.herokuapp.com/v1/auth/register", values)
+        .post(`https://jaychats.herokuapp.com/v1/auth/register`, values)
         .then((response) => {
           console.log(response);
+          localStorage.setItem("userInfo", JSON.stringify(response.data));
           window.location.reload();
         })
         .catch((error) => {
@@ -103,7 +104,7 @@ const SignupForm = ({ handleSign }) => {
               value={formik.values.firstName}
             />
             {formik.touched.firstName && formik.errors.firstName ? (
-              <div>{formik.errors.firstName}</div>
+              <div className="text-red-600">{formik.errors.firstName}</div>
             ) : null}
           </div>
           <div className="md:p-5 p-1  flex flex-col ">
@@ -119,7 +120,7 @@ const SignupForm = ({ handleSign }) => {
               value={formik.values.lastName}
             />
             {formik.touched.lastName && formik.errors.lastName ? (
-              <div>{formik.errors.lastName}</div>
+              <div className="text-red-600">{formik.errors.lastName}</div>
             ) : null}
           </div>
         </div>
@@ -137,7 +138,7 @@ const SignupForm = ({ handleSign }) => {
               value={formik.values.username}
             />
             {formik.touched.username && formik.errors.username ? (
-              <div>{formik.errors.username}</div>
+              <div className="text-red-600">{formik.errors.username}</div>
             ) : null}
           </div>
           <div className="md:p-5 p-1  flex flex-col ">
@@ -153,7 +154,7 @@ const SignupForm = ({ handleSign }) => {
               value={formik.values.email}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
+              <div className="text-red-600">{formik.errors.email}</div>
             ) : null}
           </div>
         </div>
@@ -172,7 +173,7 @@ const SignupForm = ({ handleSign }) => {
               value={formik.values.password}
             />
             {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
+              <div className="text-red-600">{formik.errors.password}</div>
             ) : null}
           </div>
           <div className="md:p-5 p-1  flex flex-col ">
@@ -189,7 +190,9 @@ const SignupForm = ({ handleSign }) => {
             />
             {formik.touched.passwordConfirmation &&
             formik.errors.passwordConfirmation ? (
-              <div>{formik.errors.passwordConfirmation}</div>
+              <div className="text-red-600">
+                {formik.errors.passwordConfirmation}
+              </div>
             ) : null}
           </div>
         </div>

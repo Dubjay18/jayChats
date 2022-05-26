@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-
-import { user } from "./../reducer";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+
 import UsersContact from "../components/UsersContact";
 import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
@@ -14,31 +12,28 @@ import { useRef } from "react";
 function Chats() {
   const socket = useRef();
   const navigate = useNavigate();
-  const userName = useSelector((state) => state.userName);
-  const id = useSelector((state) => state.token);
-  const entry = useSelector((state) => state.entry);
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentChat, setCurrentChat] = useState(undefined);
 
   useEffect(async () => {
-    if (!userName) {
-      await navigate("/login");
+    if (!localStorage.getItem("userInfo")) {
+      navigate("/login");
     } else {
-      setCurrentUser(userName);
+      setCurrentUser(await JSON.parse(localStorage.getItem("userInfo")));
     }
   }, []);
   useEffect(async () => {
     if (currentUser) {
       socket.current = io("https://jaychats.herokuapp.com");
-      socket.current.emit("add-user", id);
+      socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
   useEffect(async () => {
     if (currentUser) {
-      if (entry) {
+      if (currentUser.isAvatarImageSet) {
         const response = await axios.get(
-          `https://jaychats.herokuapp.com/v1/users/AllUsers/${id}`
+          `https://jaychats.herokuapp.com/v1/users/AllUsers/${currentUser._id}`
         );
 
         setContacts(response.data);

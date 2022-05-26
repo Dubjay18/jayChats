@@ -54,7 +54,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Provider store={store}>
           {" "}
-          <Container />
+          <App />
         </Provider>
       </BrowserRouter>
     </CarouselApi>

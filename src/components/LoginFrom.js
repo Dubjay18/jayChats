@@ -2,19 +2,13 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import {
-  setUsername,
-  setToken,
-  setEntry,
-  setImage,
-} from "../actionTypes/newUser";
-import { useDispatch, useSelector } from "react-redux";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 function LoginFrom({ handleSign }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -31,16 +25,12 @@ function LoginFrom({ handleSign }) {
     }),
     onSubmit: (values) => {
       axios
-        .post("https://jaychats.herokuapp.com/v1/auth/login", values)
+        .post(`https://jaychats.herokuapp.com/v1/auth/login`, values)
         .then((response) => {
-          dispatch(setUsername(response.data.username));
-          dispatch(setToken(response.data._id));
+          localStorage.setItem("userInfo", JSON.stringify(response.data));
           if (response.data.isAvatarImageSet === false) {
             navigate("/setAvatar");
           } else {
-            dispatch(setEntry(response?.data?.isAvatarImageSet));
-            dispatch(setImage(response?.data?.avatarImage));
-            console.log(response);
             navigate("/");
           }
         })
@@ -104,7 +94,7 @@ function LoginFrom({ handleSign }) {
             value={formik.values.username}
           />
           {formik.touched.username && formik.errors.username ? (
-            <div>{formik.errors.username}</div>
+            <div className="text-red-600">{formik.errors.username}</div>
           ) : null}
         </div>
         <div className="md:p-5 p-1  flex flex-col ">
@@ -118,7 +108,7 @@ function LoginFrom({ handleSign }) {
             value={formik.values.password}
           />
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <div className="text-red-600">{formik.errors.password}</div>
           ) : null}
         </div>
 

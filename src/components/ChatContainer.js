@@ -1,20 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import ChatInput from "./ChatInput";
 import Messages from "./Messages";
-import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function ChatContainer({ currentChat, socket, currentUser }) {
-  const id = useSelector((state) => state.token);
   const [chatMessages, setChatMessages] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
   useEffect(async () => {
     await axios
       .post("https://jaychats.herokuapp.com/v1/messages/all", {
-        from: id,
+        from: currentUser._id,
         to: currentChat._id,
       })
       .then((response) => {
@@ -29,7 +27,7 @@ function ChatContainer({ currentChat, socket, currentUser }) {
   const handleSendMsg = async (msg) => {
     await axios
       .post("https://jaychats.herokuapp.com/v1/messages/add", {
-        from: id,
+        from: currentUser._id,
         to: currentChat._id,
         message: msg,
       })
@@ -37,7 +35,7 @@ function ChatContainer({ currentChat, socket, currentUser }) {
         console.log(response);
         socket.current.emit("send-msg", {
           to: currentChat._id,
-          from: id,
+          from: currentUser._id,
           message: msg,
         });
         const msgs = [...chatMessages];
@@ -100,7 +98,7 @@ function ChatContainer({ currentChat, socket, currentUser }) {
         pauseOnHover
       />
       {currentChat && (
-        <div className="mx-10 h-full flex flex-col justify-end">
+        <div className="md:mx-10 mx-1 h-full flex flex-col justify-end">
           <div className="h-full overflow-y-scroll my-10 messagescrollbar">
             <Messages chatMessages={chatMessages} scrollRef={scrollRef} />
           </div>

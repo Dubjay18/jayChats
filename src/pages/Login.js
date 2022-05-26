@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
 import SignupForm from "./../components/SignupForm";
 import LoginFrom from "./../components/LoginFrom";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Chats from "./Chats";
 import Navbar from "../components/Navbar";
 function Login() {
   const navigate = useNavigate();
-  const userName = useSelector((state) => state.userName);
   const [sign, setSign] = useState(false);
-  const [email, setEmail] = useState("");
-
   const handleSign = (e) => {
     setSign(e);
   };
 
-  useEffect(async () => {
-    if (userName) {
-      await navigate("/");
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      navigate("/");
     }
   }, []);
 
