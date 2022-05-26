@@ -19,7 +19,7 @@ function UsersContact({ handleChatChange, contacts, currentUser }) {
         {userImage && currentUser ? (
           <>
             {" "}
-            <div className="text-emerald-400 font-poppins h-[670px] overflow-scroll remove-scroll">
+            <div className="text-emerald-400 font-poppins h-[80vh] overflow-scroll remove-scroll">
               <h1 className="md:text-2xl my-2">Users</h1>
               {contacts.map((contact, i) => {
                 return (

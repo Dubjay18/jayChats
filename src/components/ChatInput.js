@@ -30,7 +30,7 @@ function ChatInput({ handleSendMsg }) {
           <Picker preload="true" onEmojiClick={handleEmojiClick} native />
         )}
         <BsEmojiSmileFill
-          className="w-10 text-yellow-400 h-full hover:text-yellow-200 transition-all duration-300 cursor-pointer"
+          className="md:w-10 text-yellow-400 h-full hover:text-yellow-200 transition-all duration-300 cursor-pointer"
           onClick={handleEmojiToggle}
         />
       </div>

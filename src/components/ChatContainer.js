@@ -87,7 +87,7 @@ function ChatContainer({ currentChat, socket, currentUser }) {
     }
   }
   return (
-    <div className="h-[80%]">
+    <div className="h-[75%] overflow-x-hidden">
       <ToastContainer
         position="top-center"
         autoClose={1400}

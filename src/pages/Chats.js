@@ -57,7 +57,7 @@ function Chats() {
       <div className="drawer  drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
-          <div className="bg-base-100 border-x-2 flex items-center px-5 py-10">
+          <div className="bg-base-100 border-x-2 flex h-[20%] items-center px-5 py-10">
             {" "}
             <label
               for="my-drawer-2"
@@ -78,7 +78,7 @@ function Chats() {
               </svg>
             </label>
             {currentChat ? (
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <div className=" w-16 ">
                   <img
                     src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
@@ -105,9 +105,9 @@ function Chats() {
             />
           )}
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label for="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu h-full p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+          <ul className="menu h-[100vh] p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <UsersContact
               contacts={contacts}
               currentUser={currentUser}
