@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Buffer } from "buffer";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setEntry } from "../actionTypes/newUser";
+import { setEntry, setImage } from "../actionTypes/newUser";
 
 function SetAvatar() {
   const api = "https://api.multiavatar.com/4238383";
@@ -47,6 +47,7 @@ function SetAvatar() {
       console.log(data);
       if (data.isSet) {
         dispatch(setEntry(data.isSet));
+        dispatch(setImage(data.avatarImage));
         navigate("/");
       } else {
         alert("Error setting avatar");
