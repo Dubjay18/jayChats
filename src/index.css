@@ -119,3 +119,8 @@
   background-color: rgb(5, 105, 105) !important;
   border-radius: 5px;
 }
+@media (max-width: 768px) {
+  .messagescrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

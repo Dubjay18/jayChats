@@ -40,7 +40,7 @@ function ChatInput({ handleSendMsg }) {
       >
         <input
           type="text"
-          className="input input-accent w-full mx-5"
+          className="input input-accent text-white w-full mx-5"
           value={msg}
           onChange={(e) => setMsg(e.target.value)}
         />
