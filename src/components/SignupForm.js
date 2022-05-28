@@ -213,7 +213,7 @@ const SignupForm = ({ handleSign }) => {
               Login
             </span>
           </p>
-          <p className="cursor-pointer hover:text-emerald-400">
+          <p className="d cursor-pointer hover:text-emerald-400">
             forgot password
           </p>
         </div>
