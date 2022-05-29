@@ -98,7 +98,7 @@ function ChatContainer({ currentChat, socket, currentUser }) {
         pauseOnHover
       />
       {currentChat && (
-        <div className="md:mx-10 mx-1 h-full flex flex-col justify-end">
+        <div className="s md:mx-10 mx-1 h-full flex flex-col justify-end">
           <div className="h-full overflow-y-scroll my-10 messagescrollbar">
             <Messages chatMessages={chatMessages} scrollRef={scrollRef} />
           </div>
